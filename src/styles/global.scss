@@ -1,0 +1,147 @@
+/* Biến toàn cục, nền tảng, cuộn ngang bảng và mẫu in A4 */
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f4f5fa;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Vùng nội dung trang */
+.page-content {
+  padding: 16px 20px 32px;
+}
+
+.page-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.page-toolbar .ant-input-affix-wrapper,
+.page-toolbar .ant-select-selector,
+.page-toolbar .ant-picker {
+  background: #fff;
+}
+
+.table-scroll-x {
+  overflow-x: auto;
+}
+
+.text-muted {
+  color: #6b7280;
+}
+
+.text-strong {
+  font-weight: 600;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Mẫu in A4 */
+.print-only {
+  display: none;
+}
+
+.print-root {
+  background: #fff;
+  color: #000;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 10mm;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.print-root h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.print-root .print-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.print-root table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+
+.print-root th,
+.print-root td {
+  border: 1px solid #444;
+  padding: 4px 6px;
+  font-size: 12.5px;
+  vertical-align: top;
+}
+
+.print-root th {
+  background: #eee;
+  text-align: left;
+}
+
+.print-root .print-signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+  text-align: center;
+  gap: 12px;
+}
+
+.print-root .print-signatures > div {
+  flex: 1;
+}
+
+.print-root .amount {
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .print-root,
+  .print-root * {
+    visibility: visible;
+  }
+
+  .print-root {
+    position: absolute;
+    inset: 0;
+    max-width: none;
+    padding: 6mm;
+  }
+
+  @page {
+    size: A4;
+    margin: 8mm;
+  }
+}

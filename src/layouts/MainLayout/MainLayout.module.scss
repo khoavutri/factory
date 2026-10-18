@@ -1,0 +1,109 @@
+/* Khung ứng dụng cao đúng bằng màn hình: sider + header đứng yên, chỉ nội dung cuộn */
+:global(.factory-layout) {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.sider {
+  :global(.ant-layout-sider-children) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  color: #fff;
+}
+
+.brandMark {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4f46e5, #8b7cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex: none;
+}
+
+.brandText {
+  line-height: 1.2;
+}
+
+.brandName {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.brandSub {
+  font-size: 11px;
+  opacity: 0.72;
+  white-space: nowrap;
+}
+
+.menuWrap {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.siderFooter {
+  padding: 10px 14px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Cột phải: header cố định trên, phần thân bên dưới tự cuộn */
+.main {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1px solid #e8e8f5;
+  flex: none;
+  position: relative;
+  z-index: 20;
+}
+
+.headerSpacer {
+  flex: 1;
+}
+
+.roleBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.roleHint {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .roleHint {
+    display: none;
+  }
+}
